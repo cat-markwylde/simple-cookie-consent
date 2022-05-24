@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="./cookieConsent.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Amazing Site</title>
+</head>
+<body>
+  <h1>My Amazing Site</h1>
+  <p>This is my amazing site!</p>
+
+  <script>
+    // Set cookies anywhere in your app
+    document.cookie = "testa=1";
+    document.cookie = "testb=2";
+  </script>
+  
+  <style>
+    .cookie-consent {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgb(233, 233, 233);
+      border-top: 2px solid rgb(156, 156, 156);
+      padding: 20px;
+    }
+  </style>
+  <div class="cookie-consent" style="display: none">
+    <strong>Do you consent to cookies?</strong>
+    <p>Cookies are delicious, and can be eaten by themselves or dipped in milk.</p>
+    <p>Do you consent to cookies?</p>
+    <button onclick="cookieConsent(true); this.parentNode.style.display = 'none';">Yes</button>
+    <button onclick="cookieConsent(false); this.parentNode.style.display = 'none';">No</button>
+  </div>
+  <script>
+    if (!localStorage.getItem('cookieConsent')) {
+      document.querySelector('.cookie-consent').style.display = '';
+    }
+  </script>
+</body>
+</html>
