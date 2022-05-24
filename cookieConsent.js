@@ -2,7 +2,7 @@ let cookieQueue = [];
 const originalCookieSetter = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie').set;
 Object.defineProperty(document, 'cookie', {
   set: function(value) {
-    if (localStorage.getItem('cookieConsent')) {
+    if (localStorage.getItem('cookieConsent') === 'true') {
       originalCookieSetter.call(document, value);
       return;
     }
