@@ -13,6 +13,10 @@ Object.defineProperty(document, 'cookie', {
 });
 
 window.cookieConsent = (value) => {
+  if (value === undefined) {
+    return localStorage.getItem('cookieConsent');
+  }
+
   localStorage.setItem('cookieConsent', value)
 
   if (localStorage.getItem('cookieConsent') === 'true') {
@@ -22,8 +26,6 @@ window.cookieConsent = (value) => {
     cookieQueue = [];
   } else {
     deleteAllCookies();
-    localStorage.clear();
-    window.location.reload();
   }
 }
 

@@ -12,7 +12,9 @@
   <p>This is my amazing site!</p>
 
   <p>Reset the demo by removing your consent below:</p>
-  <button onclick="cookieConsent(false);">Remove Consent</button>
+  <button onclick="cookieConsent(false); localStorage.clear(); window.location.reload();">
+    Remove Consent
+  </button>
 
   <script>
     // Set cookies anywhere in your app
@@ -39,7 +41,7 @@
     <button onclick="cookieConsent(false); this.parentNode.style.display = 'none';">No</button>
   </div>
   <script>
-    if (!localStorage.getItem('cookieConsent')) {
+    if (!cookieConsent()) {
       document.querySelector('.cookie-consent').style.display = '';
     }
   </script>
