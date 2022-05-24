@@ -12,7 +12,7 @@ Object.defineProperty(document, 'cookie', {
 });
 
 window.cookieConsent = (value) => {
-  localStorage.setItem('cookieConsent', true)
+  localStorage.setItem('cookieConsent', value)
 
   if (localStorage.getItem('cookieConsent')) {
     cookieQueue.forEach(item => {
